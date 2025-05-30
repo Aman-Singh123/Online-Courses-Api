@@ -8,7 +8,7 @@ module.exports = createCoreController('api::enrollment.enrollment', ({ strapi })
         return response;
     },
     async markLessonCompleted(ctx) {
-        console.log('markLessonCompleted called');
+        // console.log('markLessonCompleted called');
         const { enrollmentId, lessonId } = ctx.request.body;
 
         const enrollments = await strapi.entityService.findMany('api::enrollment.enrollment', {
@@ -18,7 +18,7 @@ module.exports = createCoreController('api::enrollment.enrollment', ({ strapi })
                 course: { populate: ['lessons'] },
             },
         });
-        console.log("enrollments **********", enrollments);
+        // console.log("enrollments **********", enrollments);
 
         const enrollment = enrollments.length > 0 ? enrollments[0] : null;
         if (!enrollment) {
