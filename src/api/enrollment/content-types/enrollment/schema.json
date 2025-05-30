@@ -4,7 +4,8 @@
   "info": {
     "singularName": "enrollment",
     "pluralName": "enrollments",
-    "displayName": "Enrollment"
+    "displayName": "Enrollment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,6 +32,12 @@
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "enrollments"
+    },
+    "completedLessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "fromEnrollment"
     }
   }
 }

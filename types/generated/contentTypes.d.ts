@@ -455,6 +455,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
 export interface ApiEnrollmentEnrollment extends Struct.CollectionTypeSchema {
   collectionName: 'enrollments';
   info: {
+    description: '';
     displayName: 'Enrollment';
     pluralName: 'enrollments';
     singularName: 'enrollment';
@@ -463,6 +464,10 @@ export interface ApiEnrollmentEnrollment extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    completedLessons: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lesson.lesson'
+    >;
     course: Schema.Attribute.Relation<'manyToOne', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -506,6 +511,10 @@ export interface ApiLessonLesson extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
     duration: Schema.Attribute.Time & Schema.Attribute.Required;
+    fromEnrollment: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::enrollment.enrollment'
+    >;
     isFreePreview: Schema.Attribute.Boolean;
     lessonOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &

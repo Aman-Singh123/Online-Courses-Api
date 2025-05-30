@@ -1,9 +1,6 @@
 'use strict';
 
-/**
- * enrollment router
- */
-
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@strapi/strapi').factories;// this file exports your POST route array
 
 module.exports = createCoreRouter('api::enrollment.enrollment');
+    
