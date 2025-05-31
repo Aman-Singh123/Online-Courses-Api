@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_question_options_options",
+  "info": {
+    "displayName": "options"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

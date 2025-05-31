@@ -59,6 +59,12 @@
       "relation": "manyToOne",
       "target": "api::enrollment.enrollment",
       "inversedBy": "completedLessons"
+    },
+    "quizzes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz.quiz",
+      "mappedBy": "lesson"
     }
   }
 }

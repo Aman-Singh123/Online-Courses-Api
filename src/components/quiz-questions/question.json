@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_quiz_questions_question_s",
+  "info": {
+    "displayName": "question ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "questiontext": {
+      "type": "string",
+      "required": true
+    },
+    "correctAnswerIndex": {
+      "type": "integer"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "question-options.options"
+    }
+  }
+}
