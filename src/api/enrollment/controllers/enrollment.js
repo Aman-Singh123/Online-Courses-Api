@@ -46,6 +46,15 @@ module.exports = createCoreController('api::enrollment.enrollment', ({ strapi })
         const completedCount = updatedEnrollment.completedLessons.length;
         const newProgress = Math.round((completedCount / totalLessons) * 100);
 
+        // After calculating progress
+        if (newProgress === 100) {
+            await strapi.entityService.update('api::enrollment.enrollment', enrollmentId, {
+                data: {
+                    isCompleted: true,
+                },
+            });
+        }
+
         await strapi.entityService.update('api::enrollment.enrollment', enrollment.id, {
             data: {
                 progress: newProgress,
